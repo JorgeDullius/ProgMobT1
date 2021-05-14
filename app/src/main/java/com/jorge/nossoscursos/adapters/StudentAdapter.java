@@ -27,9 +27,9 @@ public class StudentAdapter extends ArrayAdapter<Aluno> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.card_student, parent, false);
         }
 
-        TextView tvName = (TextView) convertView.findViewById(R.id.student_name);
-        TextView tvCpf = (TextView) convertView.findViewById(R.id.cpf);
-        TextView tvEmail = (TextView) convertView.findViewById(R.id.email);
+        TextView tvName = convertView.findViewById(R.id.student_name);
+        TextView tvCpf = convertView.findViewById(R.id.cpf);
+        TextView tvEmail = convertView.findViewById(R.id.email);
 
         tvName.setText(student.nome);
         tvCpf.setText(student.cpf);
