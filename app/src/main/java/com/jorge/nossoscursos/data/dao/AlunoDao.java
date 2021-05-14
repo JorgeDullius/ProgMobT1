@@ -20,10 +20,10 @@ public interface AlunoDao {
     List<Aluno> getByCurso(int cursoId);
 
     @Update
-    public void update(Aluno aluno);
+    void update(Aluno aluno);
 
     @Insert
-    void insert(Aluno alunos);
+    void insert(Aluno aluno);
 
     @Delete
     void delete(Aluno aluno);

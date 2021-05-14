@@ -4,10 +4,12 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.jorge.nossoscursos.data.entity.Aluno;
 import com.jorge.nossoscursos.data.entity.Curso;
+import com.jorge.nossoscursos.data.entity.CursoAlunos;
 
 import java.util.List;
 
@@ -15,6 +17,10 @@ import java.util.List;
 public interface CursoDao {
     @Query("SELECT * FROM Curso")
     List<Curso> getAll();
+
+    @Transaction
+    @Query("SELECT * FROM Curso")
+    List<CursoAlunos> getAllAndAlunos();
 
     @Insert
     void insert(Curso curso);

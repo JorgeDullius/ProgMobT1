@@ -9,7 +9,8 @@ import androidx.room.PrimaryKey;
 public class Curso {
     @PrimaryKey
     @ColumnInfo(name = "cursoId", index=true)
-    public int id;
+    @NonNull
+    public Integer id;
 
     @ColumnInfo(name = "nomeCurso")
     @NonNull

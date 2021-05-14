@@ -23,6 +23,7 @@ public class Aluno {
     @ColumnInfo(name = "alunoId")
     public int id;
 
+    @ColumnInfo(index = true)
     public Integer cursoId;
 
     @ColumnInfo(name = "nomeAluno")
