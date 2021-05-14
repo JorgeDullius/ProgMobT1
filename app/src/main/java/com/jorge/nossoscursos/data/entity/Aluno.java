@@ -6,12 +6,15 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(
-        tableName="Aluno",
-        foreignKeys={@ForeignKey(entity = Curso.class,
-                parentColumns = "cursoId",
-                childColumns = "cursoId",
-                onDelete = ForeignKey.CASCADE)
-        }
+    tableName = "Aluno",
+    foreignKeys = {
+        @ForeignKey(
+            entity = Curso.class,
+            parentColumns = "cursoId",
+            childColumns = "cursoId",
+            onDelete = ForeignKey.CASCADE
+        )
+    }
 )
 public class Aluno {
     @PrimaryKey

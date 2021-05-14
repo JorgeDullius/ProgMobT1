@@ -23,11 +23,14 @@ public class ActivityHome extends AppCompatActivity {
         binding.bottomNavigation.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.page_1:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new FragmentCourses()).commit();
                     return true;
                 case R.id.page_2:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new FragmentStudents()).commit();
                     return true;
             }
             return false;
         });
+        binding.bottomNavigation.setSelectedItemId(R.id.page_1);
     }
 }
