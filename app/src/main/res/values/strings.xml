@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Nossos Cursos</string>
+    <string name="menu_courses">Cursos</string>
+    <string name="menu_students">Alunos</string>
 </resources>
