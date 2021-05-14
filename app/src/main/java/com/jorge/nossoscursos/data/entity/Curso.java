@@ -1,5 +1,6 @@
 package com.jorge.nossoscursos.data.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -11,7 +12,9 @@ public class Curso {
     public int id;
 
     @ColumnInfo(name = "nomeCurso")
+    @NonNull
     public String nome;
 
-    public int qtdHoras;
+    @NonNull
+    public int qtdeHoras;
 }

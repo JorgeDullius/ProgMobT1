@@ -4,7 +4,9 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
+import com.jorge.nossoscursos.data.entity.Aluno;
 import com.jorge.nossoscursos.data.entity.Curso;
 
 import java.util.List;
@@ -15,7 +17,10 @@ public interface CursoDao {
     List<Curso> getAll();
 
     @Insert
-    void insertAll(Curso... curso);
+    void insert(Curso curso);
+
+    @Update
+    public void update(Curso curso);
 
     @Delete
     void delete(Curso curso);

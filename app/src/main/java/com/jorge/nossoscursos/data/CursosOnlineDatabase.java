@@ -19,17 +19,10 @@ public abstract class CursosOnlineDatabase extends RoomDatabase {
     public static final int DB_VERSION = 1;
     public static final String DB_NAME = "cursosonline.db";
 
-    private CursosOnlineDatabase instance;
-
-    public CursosOnlineDatabase getInstance(Context context) {
-        if (this.instance == null) {
-            this.instance = this.build(context);
-        }
-
-        return this.instance;
-    }
-
-    private CursosOnlineDatabase build(Context context) {
-        return Room.databaseBuilder(context, CursosOnlineDatabase.class, DB_NAME).createFromAsset("database/cursosonline.db").build();
+    public static CursosOnlineDatabase build(Context context) {
+        return Room.databaseBuilder(context, CursosOnlineDatabase.class, DB_NAME)
+                .allowMainThreadQueries()
+                .createFromAsset("database/cursosonline.db")
+                .build();
     }
 }

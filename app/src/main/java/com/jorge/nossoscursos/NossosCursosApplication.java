@@ -11,9 +11,7 @@ public class NossosCursosApplication extends Application {
 
     @Override
     public void onCreate() {
-        database = Room.databaseBuilder(
-            getApplicationContext(),
-            CursosOnlineDatabase.class, "cursosonline.db").build();
+        database = CursosOnlineDatabase.build(getApplicationContext());
         super.onCreate();
     }
 }
