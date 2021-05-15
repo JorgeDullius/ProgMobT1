@@ -32,7 +32,15 @@ public class FragmentCourses extends Fragment {
             CourseAdapter arrayAdapter = new CourseAdapter(getActivity(), cursos);
             binding.coursesGrid.setAdapter(arrayAdapter);
         });
-
+        setupUi();
         return binding.getRoot();
+    }
+
+    private void setupUi() {
+        RegisterCourseBottonSheetFragment fragment = new RegisterCourseBottonSheetFragment();
+        binding.registerCourseFloatingButton.setOnClickListener(
+            view -> fragment.show(requireActivity().getSupportFragmentManager(),
+                null)
+        );
     }
 }

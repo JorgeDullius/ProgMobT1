@@ -31,6 +31,11 @@ public class ActivityHomeViewModel extends ViewModel {
         }
         return _coursesList;
     }
+
+    public void registerCourse(int id, String name, int hours){
+        //registrar o curso
+        //NossosCursosApplication.database.cursoDao().insert(new Curso(id, name, hours));
+    }
 }
 
 

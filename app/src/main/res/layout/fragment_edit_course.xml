@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Editar curso"
@@ -19,9 +19,8 @@
 
     <EditText
         android:id="@+id/course_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +33,6 @@
         android:id="@+id/course_hours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
         android:text="68"
@@ -44,27 +42,21 @@
         app:layout_constraintTop_toBottomOf="@+id/course_name" />
 
     <TextView
+        android:id="@+id/students_list_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:text="Alunos"
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/course_students_grid"
+        app:layout_constraintTop_toBottomOf="@+id/course_hours"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <GridView
-        android:layout_marginHorizontal="15dp"
+    <ListView
         android:id="@+id/course_students_grid"
         android:layout_width="match_parent"
-        android:layout_marginTop="300dp"
         android:layout_height="0dp"
-        android:numColumns="1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451"
+        app:layout_constraintTop_toBottomOf="@id/students_list_title"
         tools:listitem="@layout/card_student" />
 </androidx.constraintlayout.widget.ConstraintLayout>

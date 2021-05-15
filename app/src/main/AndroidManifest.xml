@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NossosCursos"
         android:name=".NossosCursosApplication">
-        <activity android:name=".ActivityHome">
+        <activity android:name=".ActivityHome"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
