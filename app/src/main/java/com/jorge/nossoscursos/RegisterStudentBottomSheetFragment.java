@@ -42,13 +42,15 @@ public class RegisterStudentBottomSheetFragment extends BottomSheetDialogFragmen
     }
 
     private void setupUi() {
-        CursoAlunos course = viewModel.coursesList().getValue().get(binding.availableCoursesSpinner.getSelectedItemPosition());
-        binding.submitButton.setOnClickListener(view -> viewModel.registerStudent(
-            binding.studentNameEditText.getText().toString(),
-            binding.studentEmailEditText.getText().toString(),
-            binding.studentCpfEditText.getText().toString(),
-            binding.studentPhoneEditText.getText().toString(),
-            course.curso.id
-        ));
+        binding.submitButton.setOnClickListener(view -> {
+            CursoAlunos course = viewModel.coursesList().getValue().get(binding.availableCoursesSpinner.getSelectedItemPosition());
+            viewModel.registerStudent(
+                binding.studentNameEditText.getText().toString(),
+                binding.studentEmailEditText.getText().toString(),
+                binding.studentCpfEditText.getText().toString(),
+                binding.studentPhoneEditText.getText().toString(),
+                course.curso.id
+            );
+        });
     }
 }
