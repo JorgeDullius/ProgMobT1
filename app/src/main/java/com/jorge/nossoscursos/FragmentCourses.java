@@ -29,7 +29,7 @@ public class FragmentCourses extends Fragment {
 
         viewModel = new ViewModelProvider(getActivity()).get(ActivityHomeViewModel.class);
         viewModel.coursesList().observe(getActivity(), cursos -> {
-            CourseAdapter arrayAdapter = new CourseAdapter(getActivity(), cursos);
+            CourseAdapter arrayAdapter = new CourseAdapter(requireActivity(), cursos);
             binding.coursesGrid.setAdapter(arrayAdapter);
         });
         setupUi();

@@ -1,6 +1,6 @@
 package com.jorge.nossoscursos;
 
-import android.app.Application;
+import android.os.Handler;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -18,7 +18,8 @@ public class ActivityHomeViewModel extends ViewModel {
 
     public LiveData<List<Aluno>> studentsList() {
         if (_studentsList == null) {
-            _studentsList = new MutableLiveData<List<Aluno>>(NossosCursosApplication.database.alunoDao().getAll());
+            _studentsList = new MutableLiveData<>();
+            loadStudents();
         }
         return _studentsList;
     }
@@ -27,14 +28,26 @@ public class ActivityHomeViewModel extends ViewModel {
 
     public LiveData<List<CursoAlunos>> coursesList() {
         if (_coursesList == null) {
-            _coursesList = new MutableLiveData<List<CursoAlunos>>(NossosCursosApplication.database.cursoDao().getAllAndAlunos());
+            _coursesList = new MutableLiveData<>();
+            loadCourses();
         }
         return _coursesList;
     }
 
-    public void registerCourse(int id, String name, int hours){
-        //registrar o curso
-        //NossosCursosApplication.database.cursoDao().insert(new Curso(id, name, hours));
+    public void loadStudents(){
+        Handler myHandler = new Handler();
+        myHandler.postDelayed(() -> _studentsList.setValue(NossosCursosApplication.database.alunoDao().getAll()), 1000);
+    }
+
+    public void loadCourses() {
+        Handler myHandler = new Handler();
+        myHandler.postDelayed(() -> _coursesList.setValue(NossosCursosApplication.database.cursoDao().getAllAndAlunos()), 1000);
+    }
+
+    public void registerCourse(String name, int hours) {
+        Long curso = NossosCursosApplication.database.cursoDao().insert(new Curso(name, hours));
+        System.out.println(curso);
+        loadCourses();
     }
 }
 

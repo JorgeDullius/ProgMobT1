@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Curso {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "cursoId", index=true)
     @NonNull
     public Integer id;
@@ -18,4 +18,14 @@ public class Curso {
 
     @NonNull
     public int qtdeHoras;
+
+
+    public Curso(){
+        this("", 0);
+    }
+
+    public Curso(String name, int hours) {
+        this.nome = name;
+        this.qtdeHoras = hours;
+    }
 }

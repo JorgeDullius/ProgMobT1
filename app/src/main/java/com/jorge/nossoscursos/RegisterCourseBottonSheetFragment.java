@@ -25,10 +25,14 @@ public class RegisterCourseBottonSheetFragment extends BottomSheetDialogFragment
         @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(getActivity()).get(ActivityHomeViewModel.class);
         binding = FragmentRegisterCourseBinding.inflate(inflater);
+        setupUi();
         return binding.getRoot();
     }
 
-    private void setupUi(){
-        binding.submitButton.setOnClickListener(view -> {} /*chamar metodo de registrar da viewmodel*/);
+    private void setupUi() {
+        binding.submitButton.setOnClickListener(view -> viewModel.registerCourse(
+            binding.courseNameEditText.getText().toString(),
+            Integer.parseInt(binding.courseHoursEditText.getText().toString())
+        ));
     }
 }
