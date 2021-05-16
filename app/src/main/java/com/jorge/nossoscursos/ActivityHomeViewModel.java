@@ -34,7 +34,7 @@ public class ActivityHomeViewModel extends ViewModel {
         return _coursesList;
     }
 
-    public void loadStudents(){
+    public void loadStudents() {
         Handler myHandler = new Handler();
         myHandler.postDelayed(() -> _studentsList.setValue(NossosCursosApplication.database.alunoDao().getAll()), 1000);
     }
@@ -46,8 +46,14 @@ public class ActivityHomeViewModel extends ViewModel {
 
     public void registerCourse(String name, int hours) {
         Long curso = NossosCursosApplication.database.cursoDao().insert(new Curso(name, hours));
-        System.out.println(curso);
         loadCourses();
+    }
+
+    public void registerStudent(String name, String email, String cpf, String phoneNumber, Integer idCourse) {
+        NossosCursosApplication.database.alunoDao().insert(
+            new Aluno(name, email, cpf, phoneNumber, idCourse)
+        );
+        loadStudents();
     }
 }
 

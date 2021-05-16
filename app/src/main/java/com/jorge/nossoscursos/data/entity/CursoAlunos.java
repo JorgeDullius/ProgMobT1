@@ -13,4 +13,8 @@ public class CursoAlunos {
             entityColumn = "cursoId"
     )
     public List<Aluno> alunos;
+
+    public String getCourseName(){
+        return curso.nome;
+    }
 }

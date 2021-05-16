@@ -32,7 +32,15 @@ public class FragmentStudents extends Fragment {
             StudentAdapter arrayAdapter = new StudentAdapter(getActivity(), alunos);
             binding.studentsGrid.setAdapter(arrayAdapter);
         });
-
+        setupUi();
         return binding.getRoot();
+    }
+
+    private void setupUi() {
+        RegisterStudentBottomSheetFragment fragment = new RegisterStudentBottomSheetFragment();
+        binding.addStudentFloatingButton.setOnClickListener(
+            view -> fragment.show(requireActivity().getSupportFragmentManager(),
+                null)
+        );
     }
 }

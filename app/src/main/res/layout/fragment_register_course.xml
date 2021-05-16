@@ -21,12 +21,11 @@
         android:id="@+id/course_name_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:hint="Nome do curso"
-        android:text="PROGMOV"
+        android:hint="Nome do estudante"
         android:textColor="#353535"
-        android:textSize="24dp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/course_name" />
 
@@ -46,9 +45,9 @@
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Curso"
-        app:layout_constraintTop_toBottomOf="@id/course_hours_edit_text"
         android:insetTop="0dp"
-        android:insetBottom="0dp"/>
+        android:insetBottom="0dp"
+        android:text="Cadastrar Curso"
+        app:layout_constraintTop_toBottomOf="@id/course_hours_edit_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

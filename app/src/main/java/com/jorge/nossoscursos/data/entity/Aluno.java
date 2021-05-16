@@ -19,7 +19,7 @@ import androidx.room.PrimaryKey;
     }
 )
 public class Aluno {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "alunoId")
     public int id;
 
@@ -38,4 +38,19 @@ public class Aluno {
 
     @NonNull
     public String telefone;
+
+    public Aluno(){
+        this.nome = "";
+        this.cpf = "";
+        this.email = "";
+        this.telefone = "";
+    }
+
+    public Aluno(String name, String email, String cpf, String phoneNumber, Integer idCourse){
+        this.nome = name;
+        this.email = email;
+        this.cpf = cpf;
+        this.telefone = phoneNumber;
+        this.cursoId = idCourse;
+    }
 }
