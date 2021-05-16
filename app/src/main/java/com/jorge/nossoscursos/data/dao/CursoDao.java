@@ -24,7 +24,7 @@ public interface CursoDao {
     List<CursoAlunos> getAllAndAlunos();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    Long insert(Curso curso);
+    void insert(Curso curso);
 
     @Update
     public void update(Curso curso);

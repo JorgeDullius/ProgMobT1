@@ -18,6 +18,8 @@ import com.jorge.nossoscursos.data.entity.Curso;
 import com.jorge.nossoscursos.data.entity.CursoAlunos;
 import com.jorge.nossoscursos.databinding.FragmentRegisterStudentFragmentBinding;
 
+import java.util.List;
+
 public class RegisterStudentBottomSheetFragment extends BottomSheetDialogFragment {
 
     private FragmentRegisterStudentFragmentBinding binding;
@@ -32,18 +34,20 @@ public class RegisterStudentBottomSheetFragment extends BottomSheetDialogFragmen
         @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(getActivity()).get(ActivityHomeViewModel.class);
         binding = FragmentRegisterStudentFragmentBinding.inflate(inflater);
-        viewModel.coursesList().observe(getActivity(), cursos -> {
-            String[] localCourses = cursos.stream().map(CursoAlunos::getCourseName).toArray(String[]::new);
-            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(requireContext(), R.layout.support_simple_spinner_dropdown_item, localCourses);
+        List<CursoAlunos> cursos = viewModel.coursesList().getValue();
 
-            binding.availableCoursesSpinner.setAdapter(
-                spinnerArrayAdapter
-            );
-        });
+        String[] localCourses = cursos.stream().map(CursoAlunos::getCourseName).toArray(String[]::new);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(requireContext(), R.layout.support_simple_spinner_dropdown_item, localCourses);
+
+        binding.availableCoursesSpinner.setAdapter(
+            spinnerArrayAdapter
+        );
+
         setupUi();
         return binding.getRoot();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void setupUi() {
         Bundle arguments = getArguments();
         Aluno student;

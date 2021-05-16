@@ -45,7 +45,7 @@ public class ActivityHomeViewModel extends ViewModel {
     }
 
     public void registerCourse(String name, int hours) {
-        Long curso = NossosCursosApplication.database.cursoDao().insert(new Curso(name, hours));
+        NossosCursosApplication.database.cursoDao().insert(new Curso(name, hours));
         loadCourses();
     }
 
@@ -61,6 +61,7 @@ public class ActivityHomeViewModel extends ViewModel {
 
     public void updateStudent(Aluno student) {
         NossosCursosApplication.database.alunoDao().update(student);
+        loadCourses();
         loadStudents();
     }
 
