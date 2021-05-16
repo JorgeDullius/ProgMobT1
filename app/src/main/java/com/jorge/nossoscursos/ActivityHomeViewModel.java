@@ -49,10 +49,30 @@ public class ActivityHomeViewModel extends ViewModel {
         loadCourses();
     }
 
+    public void removeCourse(int courseId) {
+        NossosCursosApplication.database.cursoDao().delete(courseId);
+        loadCourses();
+    }
+
+    public void updateCourse(Curso course) {
+        NossosCursosApplication.database.cursoDao().update(course);
+        loadCourses();
+    }
+
+    public void updateStudent(Aluno student) {
+        NossosCursosApplication.database.alunoDao().update(student);
+        loadStudents();
+    }
+
     public void registerStudent(String name, String email, String cpf, String phoneNumber, Integer idCourse) {
         NossosCursosApplication.database.alunoDao().insert(
             new Aluno(name, email, cpf, phoneNumber, idCourse)
         );
+        loadStudents();
+    }
+
+    public void removeStudent(int studentId) {
+        NossosCursosApplication.database.alunoDao().delete(studentId);
         loadStudents();
     }
 }

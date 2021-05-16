@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jorge.nossoscursos.databinding.ActivityHomeBinding;
 
-import java.util.List;
-
 public class ActivityHome extends AppCompatActivity {
 
     private ActivityHomeBinding binding;

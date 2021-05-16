@@ -12,7 +12,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/poppins_medium"
         android:singleLine="true"
-        android:text="Adicionar estudante"
+        android:text="Adicionar aluno"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:hint="Nome do curso"
+        android:hint="Nome do aluno"
         android:textColor="#353535"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"

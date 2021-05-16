@@ -29,6 +29,6 @@ public interface CursoDao {
     @Update
     public void update(Curso curso);
 
-    @Delete
-    void delete(Curso curso);
+    @Query("DELETE FROM Curso WHERE cursoId = :id AND NOT EXISTS (SELECT * FROM Aluno WHERE cursoId = :id)")
+    void delete(int id);
 }

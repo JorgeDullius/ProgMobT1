@@ -19,7 +19,6 @@ public class Curso {
     @NonNull
     public int qtdeHoras;
 
-
     public Curso(){
         this("", 0);
     }

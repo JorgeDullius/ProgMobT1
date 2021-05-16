@@ -11,7 +11,7 @@ import com.jorge.nossoscursos.data.dao.CursoDao;
 import com.jorge.nossoscursos.data.entity.Aluno;
 import com.jorge.nossoscursos.data.entity.Curso;
 
-@Database(entities = {Aluno.class, Curso.class}, version = 1)
+@Database(entities = {Aluno.class, Curso.class}, version = CursosOnlineDatabase.DB_VERSION)
 public abstract class CursosOnlineDatabase extends RoomDatabase {
     public abstract AlunoDao alunoDao();
     public abstract CursoDao cursoDao();

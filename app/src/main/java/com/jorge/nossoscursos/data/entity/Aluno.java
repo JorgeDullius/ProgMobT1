@@ -3,9 +3,12 @@ package com.jorge.nossoscursos.data.entity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.Relation;
 
 @Entity(
     tableName = "Aluno",
@@ -14,7 +17,7 @@ import androidx.room.PrimaryKey;
             entity = Curso.class,
             parentColumns = "cursoId",
             childColumns = "cursoId"
-           // onDelete = ForeignKey.CASCADE
+            // onDelete = ForeignKey.CASCADE
         )
     }
 )
@@ -40,10 +43,7 @@ public class Aluno {
     public String telefone;
 
     public Aluno(){
-        this.nome = "";
-        this.cpf = "";
-        this.email = "";
-        this.telefone = "";
+        this("", "", "", "", null);
     }
 
     public Aluno(String name, String email, String cpf, String phoneNumber, Integer idCourse){

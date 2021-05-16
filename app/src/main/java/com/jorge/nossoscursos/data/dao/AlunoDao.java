@@ -16,7 +16,7 @@ public interface AlunoDao {
     @Query("SELECT * FROM Aluno")
     List<Aluno> getAll();
 
-    @Query("SELECT * FROM Aluno WHERE cursoId LIKE :cursoId")
+    @Query("SELECT * FROM Aluno WHERE cursoId = :cursoId")
     List<Aluno> getByCurso(int cursoId);
 
     @Update
@@ -25,6 +25,6 @@ public interface AlunoDao {
     @Insert
     void insert(Aluno aluno);
 
-    @Delete
-    void delete(Aluno aluno);
+    @Query("DELETE FROM Aluno WHERE alunoId = :id")
+    void delete(int id);
 }

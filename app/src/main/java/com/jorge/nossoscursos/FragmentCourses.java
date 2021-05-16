@@ -1,5 +1,6 @@
 package com.jorge.nossoscursos;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,8 +30,12 @@ public class FragmentCourses extends Fragment {
 
         viewModel = new ViewModelProvider(getActivity()).get(ActivityHomeViewModel.class);
         viewModel.coursesList().observe(getActivity(), cursos -> {
-            CourseAdapter arrayAdapter = new CourseAdapter(requireActivity(), cursos);
-            binding.coursesGrid.setAdapter(arrayAdapter);
+            Activity activity = getActivity();
+
+            if (activity != null) {
+                CourseAdapter arrayAdapter = new CourseAdapter(activity, cursos);
+                binding.coursesGrid.setAdapter(arrayAdapter);
+            }
         });
         setupUi();
         return binding.getRoot();
